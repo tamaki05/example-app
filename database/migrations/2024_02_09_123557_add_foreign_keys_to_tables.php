@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('group_id')->constrained('groups');
-        });
+            $table->foreignId('group_id')->nullable()->constrained('groups');
+        });        
         Schema::table('events', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('tag_id')->constrained('tags');
